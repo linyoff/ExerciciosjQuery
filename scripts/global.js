@@ -1,29 +1,29 @@
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     //Exercicio 1
-    $("button").eq(0).click(function(){
+    $("button").eq(0).click(function () {
         $("p").eq(1).text("Estou estudando JQuery!");
     });
 
     //Exercicio 2
-    $("button").eq(1).click(function(){
+    $("button").eq(1).click(function () {
         $("#nome1").toggle();
     });
 
     //Exercicio 3
-    $("#liPrincipal1").click(function(){
+    $("#liPrincipal1").click(function () {
         $("#subLi1").slideToggle();
     });
-    $("#liPrincipal2").click(function(){
+    $("#liPrincipal2").click(function () {
         $("#subLi2").slideToggle();
     });
-    $("#liPrincipal3").click(function(){
+    $("#liPrincipal3").click(function () {
         $("#subLi3").slideToggle();
     });
 
     //Exercicio 4
-    $("#btnForm").click(function(){
+    $("#btnForm").click(function () {
         event.preventDefault();
 
         let nome = $("#nome2").val();
@@ -32,45 +32,82 @@ $(document).ready(function(){
 
         let aux = 0;
 
-        if (nome.length < 5 || nome.length > 40){
+        if (nome.length < 5 || nome.length > 40) {
             $("#pr2").text("Mínimo 5 caracteres e no máximo 40");
-        }else {
+        } else {
             $("#pr1").text("Enviado");
             $("#pr2").hide();
             aux++;
         }
 
-        if (endereco.length == 0 || endereco.indexOf(' ') === -1){
+        if (endereco.length == 0 || endereco.indexOf(' ') === -1) {
             $("#pr3").text("Mínimo 2 palavras");
-        }else{
+        } else {
             $("#pr1").text("Enviado");
             $("#pr3").hide();
             aux++;
         }
 
-        if (curso.length == 0){
+        if (curso.length == 0) {
             $("#pr4").text("Insira o curso");
-        }else{
+        } else {
             $("#pr1").text("Enviado");
             $("#pr4").hide();
             aux++;
         }
 
-        if(aux=== 3){
+        if (aux === 3) {
             $("#prNome").append(nome);
             $("#prEndereco").append(endereco);
             $("#prCurso").append(curso);
         }
-        
+
     });
+
+
+    //Exercicio 5
+    
+    const imagem = [
+        'images/gato1.png', 
+        'images/gato2.png',  
+        'images/gato3.png', 
+        'images/gato4.png', 
+        'images/gato5.png'
+    ];
 
     
-    //Exercicio 5
-    $("#btnAnterior").click(function(){
+    let i=0;
 
+    $("#btnAnterior").click(function () {
+        if (i == 0) {
+            i = 4;
+            $('img').fadeOut(function () {
+                $(this).attr('src', imagem[i]).fadeIn();
+            });
+
+        } else{
+            i--;
+            $('img').fadeOut(function () {
+                $(this).attr('src', imagem[i]).fadeIn();
+            });
+            
+        }
     });
-    $("#btnProxima").click(function(){
 
+    $("#btnProxima").click(function () {
+        if (i == 4) {
+            i = 0;
+            $('img').fadeOut(function () {
+                $(this).attr('src', imagem[i]).fadeIn();
+            });
+
+        } else{
+            i++;
+            $('img').fadeOut(function () {
+                $(this).attr('src', imagem[i]).fadeIn();
+            });
+            
+        }
     });
 
 
@@ -99,12 +136,13 @@ $(document).ready(function(){
 
     $('a').css({
         'text-decoration': 'none',
-        'color': '#333'
+        'color': '#333',
+        'cursor': 'pointer'
     });
 
-    $('a').hover(function() {
+    $('a').hover(function () {
         $(this).css('color', '#666');
-    }, function() {
+    }, function () {
         $(this).css('color', '#333');
     });
 
@@ -118,9 +156,9 @@ $(document).ready(function(){
         'transition': 'background-color 0.3s ease'
     });
 
-    $('button').hover(function() {
+    $('button').hover(function () {
         $(this).css('background-color', '#555');
-    }, function() {
+    }, function () {
         $(this).css('background-color', '#333');
     });
 
@@ -148,13 +186,13 @@ $(document).ready(function(){
     });
 
     $('input').css({
-        'padding': '6.5px', 
-        'border-radius': '6.5px', 
+        'padding': '6.5px',
+        'border-radius': '6.5px',
     });
 
     $('#btnForm').css({
-        'display': 'block', 
-        'margin': '1% 4.2%', 
+        'display': 'block',
+        'margin': '1% 4.2%',
     });
 
     $('form').css({
@@ -178,6 +216,13 @@ $(document).ready(function(){
         'padding': '25px',
         'margin': '10px'
     });
+
+    $('#image').css({
+        'max-width': '500px',
+        'display': 'block',
+        'margin': '2%'
+    });
+
 
 });
 
