@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    
     
 </head>
 <body>
     <header>
         <h1>Índice</h1>
         
-        <ul>
+        <ul id="indice">
             <li><a href="#exercicio1">Exercício 1</a></li>
             <li><a href="#exercicio2">Exercício 2</a></li>
             <li><a href="#exercicio3">Exercício 3</a></li>
@@ -93,22 +93,33 @@
                     personalizar ainda mais e colocar as mensagens logo abaixo dos respectivos campos que as originaram.</p>
                 </header>
                 
-                <form>
+                
+                    <form>
 
-                    
-                    <p id="pr1"></p>
-
-                    <label>Nome</label>
-                    <input type="text" id="nome2" name="nome" required>
-                    <p id="pr2"></p>
-
-                    <label>Endereço</label>
-                    <input type="text" id="endereco" name="endereco" required>
-                    <p id="pr3"></p>
-
-                    <button id="btnForm">Enviar</button>
-
-                </form>
+                        <p id="pr1"></p>
+    
+                        <label>Nome</label>
+                        <input type="text" id="nome2" name="nome">
+                        <p id="pr2"></p>
+    
+                        <label>Endereço</label>
+                        <input type="text" id="endereco" name="endereco">
+                        <p id="pr3"></p>
+    
+                        <label>Curso</label>
+                        <input type="text" id="curso" name="curso">
+                        <p id="pr4"></p>
+    
+                        <button id="btnForm">Enviar</button><br>
+    
+                    </form>
+                
+                <div>
+                    <p id="prNome">Nome: </p>
+                    <p id="prEndereco">Endereço: </p>
+                    <p id="prCurso">Curso: </p>
+                </div>
+                
 
             </section>
             

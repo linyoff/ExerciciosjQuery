@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     //Exercicio 2
     $("button").eq(1).click(function(){
-        $("#nome").toggle();
+        $("#nome1").toggle();
     });
 
     //Exercicio 3
@@ -26,23 +26,46 @@ $(document).ready(function(){
     $("#btnForm").click(function(){
         event.preventDefault();
 
-        var nome = $("#nome2").val();
-        var endereco = $("#endereco").val();
+        let nome = $("#nome2").val();
+        let endereco = $("#endereco").val();
+        let curso = $("#curso").val();
+
+        let aux = 0;
 
         if (nome.length < 5 || nome.length > 40){
-            $("#pr1").text("Inválido");
-            $("#pr2").text("O nome deve ter no mínimo 5 caracteres e no máximo 40");
+            $("#pr2").text("Mínimo 5 caracteres e no máximo 40");
+        }else {
+            $("#pr1").text("Enviado");
+            $("#pr2").hide();
+            aux++;
         }
 
-        
-        console.log(nome);
-        console.log(endereco);
+        if (endereco.length == 0 || endereco.indexOf(' ') === -1){
+            $("#pr3").text("Mínimo 2 palavras");
+        }else{
+            $("#pr1").text("Enviado");
+            $("#pr3").hide();
+            aux++;
+        }
+
+        if (curso.length == 0){
+            $("#pr4").text("Insira o curso");
+        }else{
+            $("#pr1").text("Enviado");
+            $("#pr4").hide();
+            aux++;
+        }
+
+        if(aux=== 3){
+            $("#prNome").append(nome);
+            $("#prEndereco").append(endereco);
+            $("#prCurso").append(curso);
+        }
         
     });
 
+    
     //Exercicio 5
-    var images = [];
-
     $("#btnAnterior").click(function(){
 
     });
@@ -50,7 +73,115 @@ $(document).ready(function(){
 
     });
 
+
+    //Estilização
+    $('body').css({
+        'font-family': 'Arial, sans-serif',
+        'font-size': '26px',
+        'margin': '8% 15% 15%',
+        'padding': '0'
+    });
+
+    $('section').css({
+        'background-color': 'rgb(129, 129, 129)',
+        'margin': '20px 0',
+        'padding': '20px',
+        'border': '1px solid #ddd'
+    });
+
+    $('ul').css({
+        'list-style': 'none',
+        'padding': '0',
+        'margin': '0'
+    });
+
+    $('ul li').css('margin-bottom', '10px');
+
+    $('a').css({
+        'text-decoration': 'none',
+        'color': '#333'
+    });
+
+    $('a').hover(function() {
+        $(this).css('color', '#666');
+    }, function() {
+        $(this).css('color', '#333');
+    });
+
+    $('button').css({
+        'background-color': '#333',
+        'color': 'white',
+        'border': 'none',
+        'padding': '10px 20px',
+        'border-radius': '5px',
+        'cursor': 'pointer',
+        'transition': 'background-color 0.3s ease'
+    });
+
+    $('button').hover(function() {
+        $(this).css('background-color', '#555');
+    }, function() {
+        $(this).css('background-color', '#333');
+    });
+
+    $('#ulExc3').css({
+        'align-items': 'center',
+        'background-color': '#ffffff',
+        'padding': '15px',
+        'margin': '5%'
+    });
+
+    $('#subLi1, #subLi2, #subLi3').css({
+        'display': 'none',
+        'background-color': '#b3b3b3',
+        'padding': '15px'
+    });
+
+    $('#nome1').css({
+        'background-color': 'rgb(49, 49, 48)',
+        'color': 'rgb(255, 255, 255)',
+        'text-align': 'center'
+    });
+
+    $('label').css({
+        'display': 'block'
+    });
+
+    $('input').css({
+        'padding': '6.5px', 
+        'border-radius': '6.5px', 
+    });
+
+    $('#btnForm').css({
+        'display': 'block', 
+        'margin': '1% 4.2%', 
+    });
+
+    $('form').css({
+        'display': 'inline-block',
+        'vertical-align': 'top',
+    });
+
+    $('div').css({
+        'display': 'inline-block',
+        'vertical-align': 'center',
+        'padding': '5%'
+    });
+
+    $('#pr1, #pr2, #pr3, #pr4').css({
+        'font-size': '15px',
+        'color': 'rgb(128, 15, 15)'
+    });
+
+    $('#indice li').css({
+        'display': 'inline',
+        'padding': '25px',
+        'margin': '10px'
+    });
+
 });
+
+
 
 
 
